@@ -9,11 +9,12 @@
                         <p class="card-header-title">
                             Dashboard
                         </p>
-                    </header>
+                    
 
                     <div class="card-content">
                         You are logged in!
                     </div>
+                    </header>
                 </nav>
             </div>
         </div>

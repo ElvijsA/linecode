@@ -15,8 +15,55 @@
     </head>
     <body>
         <div id="app">
-            <nav class="navbar has-shadow">
+    		<nav class="navbar has-shadow">
+            	<div class="container">
+				<div class="nav-left">
+					<a class="nav-item brand" href="{{route('home')}}">
+						<img src="{{asset('images/logo.png')}}" alt="ECODEWS Logo" />
+					</a>
+					<a href="#" class="nav-item is-tab is-hidden-mobile m-l-20">HOME</a>
+					<a href="#" class="nav-item is-tab is-hidden-mobile">BLOG</a>
+					<a href="#" class="nav-item is-tab is-hidden-mobile">CONTACT</a>
+				</div>
+				<div class="nav-right" style="overflow: visible;">
+					@if (Auth::guest())
+                    	<a class="nav-item is-tab" href="{{ route('login') }}">Login</a>
+                    	<a class="nav-item is-tab" href="{{ route('register') }}">Register</a>
+                    @else
+						<button class="dropdown nav-item is-aligned-right is-tab">
+							Hey .. <span class="icon"><i class="fa fa-caret-down"></i></span>
+
+							<ul class="dropdown-menu">
+								<li><a href="#">
+                                <span class="icon"><i class="fa m-r-10 fa-fw fa-user-circle-o"></i></span>
+                                Profile</a></li>
+								<li><a href="#">
+                                <span class="icon"><i class="fa m-r-10 fa-fw fa-bell"></i></span>
+                                Notifications</a></li>
+								<li><a href="#">
+                                <span class="icon"><i class="fa m-r-10 fa-fw fa-cog"></i></span>
+                                Settings</a></li>
+								<li class="seperator"></li>
+								<li><a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <span class="icon"><i class="fa m-r-10 fa-fw fa-sign-out"></i></span>
+                                Logout</a></li>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+							</ul>
+						</button>
+					@endif
+				</div>
+				</div>
+			</nav>
+
+
+
+ <!--<nav class="navbar has-shadow">
                 <div class="container">
+
+                    
                     <div class="navbar-brand">
                         <a href="{{ url('/') }}" class="navbar-item">{{ config('app.name', 'Laravel') }}</a>
 
@@ -54,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-            </nav>
+            </nav>-->
             @yield('content')
         </div>
 
