@@ -11,7 +11,7 @@
                     <h1 class="title">Register</h1>
                 <form action="{{ route('register') }}" method="POST" role="form">
                     {{csrf_field()}}
-                   
+
 
                     <div class="field">
                         <label for="name" class="label">Name</label>
@@ -42,7 +42,7 @@
                                     @if ($errors->has('password'))
                                         <p class="help is-danger">{{$errors->first('password')}}</p>
                                     @endif
-                                
+
                                 </div>
                         </div>
 
@@ -55,12 +55,12 @@
                                     @if ($errors->has('password_confirmation'))
                                         <p class="help is-danger">{{$errors->first('password_confirmation')}}</p>
                                     @endif
-                                
+
                                 </div>
                         </div>
                     </div>
-               
-                   <button type="submit" class="button is-primary is-outlined is-fullwidth m-t-30">Register</button>
+
+                   <button type="submit" class="button is-success is-outlined is-fullwidth m-t-30">Register</button>
                 </form>
                 </div>
             </div>

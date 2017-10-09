@@ -9,8 +9,6 @@
                         <p class="card-header-title">
                             Dashboard
                         </p>
-                    
-
                     <div class="card-content">
                         You are logged in!
                     </div>

@@ -34,7 +34,7 @@ position: relative;
             }
         }
     }
-    
+
     &.is-aligned-right .dropdown-menu{
         left:auto;
         right: 0;
@@ -77,8 +77,8 @@ button.nav-item{
     }
 }
 nav{
-    height: 4.5rem;
+    min-height: 4.5rem;
 }
 .nav-item img{
-    max-height: 4rem;
+    max-height: 3.4rem;
 }

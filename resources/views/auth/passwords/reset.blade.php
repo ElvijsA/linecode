@@ -16,9 +16,9 @@
                 <form action="{{ route('register') }}" method="POST" role="form">
                     {{csrf_field()}}
                     <input type="hidden" name="token" value="{{ $token }}">
-                   
 
-              
+
+
 
                     <div class="field">
                         <label for="email" class="label">Email Address</label>
@@ -39,7 +39,7 @@
                                     @if ($errors->has('password'))
                                         <p class="help is-danger">{{$errors->first('password')}}</p>
                                     @endif
-                                
+
                                 </div>
                         </div>
 
@@ -50,13 +50,13 @@
                                         <input type="text" class="input {{$errors->has('password_confirmation') ? 'is-danger' : ''}}" name="password_confirmation" id="password_confirmation" required>
                                     </p>
                                     @if ($errors->has('password_confirmation'))
-                                        <p class="help is-danger">{{$errors->first('password_confirmation')}}</p>
+                                        <p class="help is-success">{{$errors->first('password_confirmation')}}</p>
                                     @endif
-                                
+
                                 </div>
                         </div>
                     </div>
-               
+
                    <button type="submit" class="button is-primary is-outlined is-fullwidth m-t-30">Reset Password</button>
                 </form>
                 </div>
