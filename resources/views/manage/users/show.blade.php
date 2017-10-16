@@ -1,7 +1,7 @@
 @extends('layouts.manage')
 
 @section('content')
-  <div class="flex-container">
+  <div class="flex-container box">
     <div class="columns m-t-10">
       <div class="column">
         <h1 class="title">View User Details</h1>
@@ -22,7 +22,7 @@
             {{$user->name}}
           </p>
         </div>
-        
+
         <div class="field">
           <label for="email" class="label">Email</label>
           <p>

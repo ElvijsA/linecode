@@ -15,4 +15,9 @@
 @import "helpers";
 @import "overrides";
 @import "style";
-@import "manage";
+
+//section css
+@import "sections/home";
+@import "sections/manage";
+@import "sections/blog";
+@import "sections/widgets";

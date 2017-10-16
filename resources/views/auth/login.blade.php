@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="container container-single">
+    <div class="econtent">
+    <div class="main">
 
-
-
-
-    <div class="columns">
-        <div class="column is-one-third is-offset-one-third m-t-100">
             <div class="card">
                 <div class="card-content">
                     <h1 class="title">Log In</h1>
@@ -41,6 +39,7 @@
             <h5 class="has-text-centered m-t-20"><a href="{{route('password.request')}}" class="is-muted">Forget Your Password?</a>
         </div>
     </div>
+  </div>
 
 @endsection
 

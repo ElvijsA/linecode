@@ -1,0 +1,20 @@
+/*BLOG LINE STYLE
+*/
+#blog{
+}
+#blog .title{
+  font-weight: 500!important;
+  font-size: 32px;
+  font-family: 'Oswald',sans-serif;
+  line-height: 1;
+}
+#blog .info{
+  padding: 10px 0;
+  color:#999;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+#blog .image img{
+  width: 100%;
+}

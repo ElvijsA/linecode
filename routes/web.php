@@ -13,6 +13,8 @@
 
 
 Route::get('/', 'PageController@index');
+Route::get('home', 'PageController@index')->name('home');
+Route::get('blog', 'PageController@blog')->name('blog');
 Route::get('about', 'PageController@about');
 Route::get('contact', 'PageController@getContact');
 Route::post('contact', 'PageController@postContact');
@@ -23,6 +25,6 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::get('/', 'ManageController@index');
   Route::get('/dashboard', 'ManageController@dashboard')->name('manage.dashboard');
   Route::resource('/users', 'UserController');
+  Route::resource('/permissions', 'PermissionController', ['except' => 'destroy']);
+    Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
 });
-
-Route::get('/home', 'HomeController@index')->name('home');

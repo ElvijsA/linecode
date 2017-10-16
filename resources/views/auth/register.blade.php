@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-
-<div class="columns">
-        <div class="column is-one-third is-offset-one-third m-t-100">
+  <div class="container container-single">
+    <div class="econtent">
+    <div class="main">
             <div class="card">
                 <div class="card-content">
                     <h1 class="title">Register</h1>
@@ -67,7 +65,7 @@
             <h5 class="has-text-centered m-t-20"><a href="{{route('login')}}" class="is-muted">Already have an Account?</a>
         </div>
     </div>
-
+</div>
 <!--<section class="hero">
         <div class="hero-body">
             <div class="container">

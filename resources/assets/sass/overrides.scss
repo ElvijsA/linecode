@@ -30,6 +30,8 @@ position: relative;
 
                 &:hover{
                     background-color: whitesmoke;
+                    padding-left: 15px;
+                    color:#ff0000;
                 }
             }
         }
@@ -44,9 +46,11 @@ position: relative;
     }
 }
 button.nav-item{
-    color: $text-light;
-    background-color: white;
+    font-family: "Oswald",sans-serif;
+    color: #f7f7f7;
+    background-color: #333;
     border:none;
+    font-size: 14px;
 
     &.hover{
         color: $link-hover;
@@ -59,10 +63,10 @@ button.nav-item{
     &.is-tab {
         border-bottom: 1px solid transparent;
         border-top:1px solid transparent;
-        padding-bottom: calc(0.75rem - 1px);
+        padding-bottom: calc(0.375em - 1px);
         padding-left: 1rem;
         padding-right: 1rem;
-        padding-top: calc(0.75rem - 1px);
+        padding-top: calc(0.375em - 1px);
     }
 
     &:hover{
@@ -73,12 +77,6 @@ button.nav-item{
     &.is-active{
         border-bottom: 3px solid $primary;
         color: $primary;
-        padding-bottom: calc(0.75rem -3px);
+        padding-bottom: calc(0.375em -3px);
     }
-}
-nav{
-    min-height: 4.5rem;
-}
-.nav-item img{
-    max-height: 3.4rem;
 }

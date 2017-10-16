@@ -17,11 +17,20 @@
     <body>
          @include('_includes.nav.main')
 
-         @include('_includes.nav.manage')
-
         <div class="management-area" id="app">
-            @yield('content')
+          <div class="container">
+            <div class="econtent">
+              <div class="main">
+              @yield('content')
+              </div>
+              <div class="side">
+              @include('_includes.nav.manage')
+              </div>
+            </div>
+          </div>
         </div>
+
+        @include('_includes.footer.footer')
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>

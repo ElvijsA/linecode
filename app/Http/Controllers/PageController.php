@@ -9,4 +9,8 @@ class PageController extends Controller
     public function index(){
         return view('pages/index');
     }
+
+    public function blog(){
+        return view('pages/blog');
+    }
 }

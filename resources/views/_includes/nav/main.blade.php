@@ -1,28 +1,16 @@
-<nav class="nav has-shadow" >
-  <div class="container">
-    <div class="nav-left">
-      <a class="nav-item is-paddingless" href="{{route('home')}}">
-        <img src="{{asset('images/logo.png')}}" alt="ECODEWS logo">
-      </a>
-      <a class="nav-item is-tab is-hidden-mobile m-l-10">Learn</a>
-      <a class="nav-item is-tab is-hidden-mobile">Discuss</a>
-      <a class="nav-item is-tab is-hidden-mobile">Share</a>
+<div class="container">
+  <div class="top-nav">
+    <div class="cont-left">
+      <input class="input search" type="text" placeholder=""><a href="" class="button"><i class="fa fa-search" aria-hidden="true"></i></a>
     </div>
-    <span class="nav-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
-    <div class="nav-right nav-menu" style="overflow: visible">
-      <a class="nav-item is-tab is-hidden-tablet is-active">Learn</a>
-      <a class="nav-item is-tab is-hidden-tablet">Discuss</a>
-      <a class="nav-item is-tab is-hidden-tablet">Share</a>
+    <div class="cont-right">
+      <!--LOGGED PANEL START -->
       @if (Auth::guest())
-        <a href="{{route('login')}}" class="nav-item is-tab">Login</a>
-        <a href="{{route('register')}}" class="nav-item is-tab">Join the Community</a>
+        <a href="{{route('login')}}" class="button">Login</a>
+        <a href="{{route('register')}}" class="button">Register</a>
       @else
         <button class="dropdown is-aligned-right nav-item is-tab" >
-          Hey {{ Auth::user()->name }}
+          {{ Auth::user()->name }}<i class="fa fa-caret-down m-l-10" aria-hidden="true"></i>
           <ul class="dropdown-menu" style="overflow: visible;">
             <li><a href="#">
                   <span class="icon">
@@ -55,6 +43,22 @@
           </ul>
         </button>
       @endif
+      <!--LOGGED PANEL END -->
     </div>
   </div>
-</nav>
+</div>
+
+<div class="container">
+  <div class="header">
+    <img class="logo" src="{{asset('images/logo-header.png')}}" alt="">
+  </div>
+</div>
+
+  <nav class="main-nav">
+    <ul>
+      <a href="{{route('home')}}"><li class="{{ Request::is('home' , '/') ? "active" : "" }}">Home</li></a>
+      <a href="{{route('blog')}}"><li class="{{ Request::is('blog') ? "active" : "" }}">Blog</li></a>
+      <a href=""><li>About</li></a>
+      <a href=""><li>Contact</li></a>
+    </ul>
+  </nav>

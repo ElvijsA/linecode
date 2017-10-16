@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-
 @if (session('status'))
     <div class="notification is-success">
         {{ session('status') }}
     </div>
  @endif
 
+ <div class="container container-single">
+   <div class="econtent">
+   <div class="main">
 <div class="columns">
         <div class="column is-one-third is-offset-one-third m-t-100">
             <div class="card">
@@ -64,7 +66,9 @@
             <h5 class="has-text-centered m-t-20"><a href="{{route('login')}}" class="is-muted">Already have an Account?</a>
         </div>
     </div>
-
+</div>
+</div>
+</div>
 <!--
     <section class="hero is-primary">
         <div class="hero-body">
