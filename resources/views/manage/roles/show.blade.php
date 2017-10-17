@@ -4,10 +4,11 @@
   <div class="flex-container box">
     <div class="columns m-t-10">
       <div class="column">
-        <h1 class="title">{{$role->display_name}}<small class="m-l-25"><em>({{$role->name}})</em></small></h1>
+        <h1 class="title">{{$role->display_name}}</h1><small class="m-l-25"><em>({{$role->name}})</em></small>
+        <p class="m-t-10">{{$role->name}}</p>
       </div>
       <div class="column">
-      <a href="{{'roles.edit'}}" class="button is-primary is-pulled-right">Edit Role</a>
+      <a href="{{route('roles.edit', $role->id)}}" class="button is-primary is-pulled-right">Edit Role</a>
       </div>
     </div>
     <hr class="m-t-0">

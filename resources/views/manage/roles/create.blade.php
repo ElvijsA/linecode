@@ -4,16 +4,13 @@
   <div class="flex-container box">
     <div class="columns m-t-10">
       <div class="column">
-        <h1 class="title">Edit {{$role->display_name}}</h1>
+        <h1 class="title">Create New Role</h1>
       </div>
-      <div class="column">
-      <a href="{{route('roles.show', $role->id)}}" class="button is-primary is-pulled-right">Back</a>
-      </div>
+
     </div>
     <hr class="m-t-0">
-    <form action="{{route('roles.update', $role->id)}}" method="POST">
+    <form action="{{route('roles.store')}}" method="POST">
       {{ csrf_field() }}
-      {{ method_field('PUT') }}
 
       <div class="columns">
         <div class="column">
@@ -26,21 +23,21 @@
                   <div class="field">
                     <p class="control">
                     <label for="display_name">Name (Human Readable)</label>
-                    <input type="text" class="input" name="display_name" value="{{$role->display_name}}" id="display_name">
+                    <input type="text" class="input" name="display_name" value="{{old('display_name')}}" id="display_name">
                     </p>
                   </div>
 
                   <div class="field">
                     <p class="control">
-                    <label for="display_name">Slug (Can not be edited)</label>
-                    <input type="text" class="input" name="name" value="{{$role->name}}" disabled id="name">
+                    <label for="display_name">Slug (Can not be changed)</label>
+                    <input type="text" class="input" name="name" value="{{old('name')}}" id="name">
                     </p>
                   </div>
 
                   <div class="field">
                     <p class="control">
                       <label for="description">Description</label>
-                      <input type="text" class="input" name="description" value="{{$role->description}}" id="description">
+                      <input type="text" class="input" name="description" value="{{old('description')}}" id="description">
                     </p>
                   </div>
                   <input type="hidden" :value="permissionsSelected" name="permissions">
@@ -70,7 +67,7 @@
           </article>
         </div> <!--END OF BOX-->
 
-        <button class="button is-primary pull-right">Save Changes to the Role</button>
+        <button class="button is-primary pull-right">Create New User</button>
       </div>
     </div>
   </form>
@@ -83,7 +80,7 @@
     var app = new Vue({
       el: '#app',
       data: {
-        permissionsSelected: {!!$role->permissions->pluck('id')!!}
+        permissionsSelected: []
       }
     });
   </script>
