@@ -1,7 +1,7 @@
 @extends('layouts.manage')
 
 @section('content')
-  <div class="flex-container box box-small">
+  <div class="flex-container box">
     <div class="columns m-t-10">
       <div class="column">
         <h1 class="title">Manage Users</h1>
@@ -30,7 +30,7 @@
               <td>{{$user->name}}</td>
               <td>{{$user->email}}</td>
               <td>{{$user->created_at->toFormattedDateString()}}</td>
-              <td class="flex"><a class="button is-outlined is-small" href="{{route('users.edit', $user->id)}}">Edit</a>
+              <td><a class="button is-outlined is-small is-fullwidth" href="{{route('users.edit', $user->id)}}">Edit</a>
               <a class="button is-outlined is-small" href="{{route('users.show', $user->id)}}">View</a></td>
             </tr>
             @endforeach

@@ -19,7 +19,20 @@
             <li><a href="{{route('permissions.index')}}">Permissions</a></li>
           </ul>
       </li>
-      <li><a href="{{route('users.index')}}">Manage Users</a></li>
+    </ul>
+    <p class="menu-label">
+      Blog
+    </p>
+    <ul class="menu-list">
+      <li><a href="{{route('users.index')}}">Manage Posts</a></li>
+      <li>
+          <a class="has-submenu">Categories &amp; Tags</a>
+          <ul class="submenu">
+            <li><a href="{{route('roles.index')}}">Categories</a></li>
+            <li><a href="">Tags</a></li>
+          </ul>
+      </li>
+      <li><a href="">Comments</a></li>
     </ul>
   </aside>
 </div>

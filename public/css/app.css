@@ -16640,9 +16640,6 @@ a.is-muted:hover {
 
 button.nav-item {
   font-family: "Oswald",sans-serif;
-  color: #f7f7f7;
-  background-color: #333;
-  border: none;
   font-size: 14px;
 }
 
@@ -16672,6 +16669,11 @@ button.nav-item.is-active {
   border-bottom: 3px solid #ff3333;
   color: #ff3333;
   padding-bottom: calc(0.375em -3px);
+}
+
+.nav-item a:not(.button),
+a.nav-item:not(.button) {
+  color: #222;
 }
 
 /*PAGE MAIN STYLE
@@ -16705,6 +16707,15 @@ small {
   font-size: 12px;
 }
 
+.is-button {
+  background-color: #333;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  color: #fff;
+}
+
 a {
   color: #222;
   text-decoration: none;
@@ -16714,9 +16725,8 @@ a.button {
   font-family: 'Oswald',sans-serif;
   font-size: 14px;
   text-transform: uppercase;
-  border-radius: 2px;
+  border-radius: 3px;
   margin: 0 1px;
-  color: #222;
 }
 
 a.button:hover {
@@ -16848,7 +16858,7 @@ nav ul .active {
 */
 
 .main {
-  margin-right: 40px;
+  margin-right: 20px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -16889,10 +16899,6 @@ nav ul .active {
             flex-direction: column;
   }
 
-  .main {
-    margin-right: 0;
-  }
-
   .container {
     max-width: 94% !important;
   }
@@ -16923,6 +16929,8 @@ footer {
   height: 200px;
   text-align: center;
   color: #ddd;
+  font-family: 'Oswald',sans-serif;
+  font-size: 22px;
 }
 
 /*BLOG TOP STYLE
@@ -17135,10 +17143,6 @@ footer {
   font-size: 14px;
 }
 
-.flex-container {
-  margin: 10px 25px;
-}
-
 .submenu {
   max-height: 0;
   overflow: hidden;
@@ -17181,8 +17185,8 @@ footer {
 */
 
 .side {
-  min-width: 280px;
-  width: 280px;
+  min-width: 260px;
+  width: 260px;
 }
 
 .side img {

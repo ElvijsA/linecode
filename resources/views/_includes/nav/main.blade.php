@@ -1,15 +1,15 @@
 <div class="container">
   <div class="top-nav">
     <div class="cont-left">
-      <input class="input search" type="text" placeholder=""><a href="" class="button"><i class="fa fa-search" aria-hidden="true"></i></a>
+      <input class="input search" type="text" placeholder=""><a href="" class="button is-button"><i class="fa fa-search" aria-hidden="true"></i></a>
     </div>
     <div class="cont-right">
       <!--LOGGED PANEL START -->
       @if (Auth::guest())
-        <a href="{{route('login')}}" class="button">Login</a>
-        <a href="{{route('register')}}" class="button">Register</a>
+        <a href="{{route('login')}}" class="button is-button">Login</a>
+        <a href="{{route('register')}}" class="button is-button">Register</a>
       @else
-        <button class="dropdown is-aligned-right nav-item is-tab" >
+        <button class="dropdown is-aligned-right nav-item is-tab is-button" >
           {{ Auth::user()->name }}<i class="fa fa-caret-down m-l-10" aria-hidden="true"></i>
           <ul class="dropdown-menu" style="overflow: visible;">
             <li><a href="#">

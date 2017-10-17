@@ -47,9 +47,6 @@ position: relative;
 }
 button.nav-item{
     font-family: "Oswald",sans-serif;
-    color: #f7f7f7;
-    background-color: #333;
-    border:none;
     font-size: 14px;
 
     &.hover{
@@ -79,4 +76,8 @@ button.nav-item{
         color: $primary;
         padding-bottom: calc(0.375em -3px);
     }
+}
+.nav-item a:not(.button),
+a.nav-item:not(.button) {
+  color: #222;
 }
