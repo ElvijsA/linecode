@@ -1,7 +1,7 @@
 # ECODEWS 
 PERSONAL WEBSITE
 
-![Alt text](/../ecodews/public/images/logo.png?raw=true "ECODEWS logo")
+<img src="https://raw.github.com/ElvijsA/ecodews/master/public/images/logo.png" width="100" height="100" />
 
 Using
 LARAVEL 5.5
