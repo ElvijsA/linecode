@@ -7,6 +7,9 @@ body{
   background-color: whitesmoke;
   font-family: 'Open Sans',sans-serif;
 }
+.ck-editor__editable {
+    min-height: 300px;
+}
 .right{
   justify-content: flex-end;
 }
@@ -31,6 +34,7 @@ small{
 a{
   color:#222;
   text-decoration: none;
+  transition: 0.3s;
   }
 a.button{
   font-family: 'Oswald',sans-serif;
@@ -154,7 +158,15 @@ nav ul  .active{
     flex-direction: column;
 
   }
-
+  .box{
+    padding: 10px;
+  }
+  .card-content{
+    padding: 10px;
+  }
+  .main{
+    margin: 0;
+  }
   .container{
     max-width: 94%!important;
   }

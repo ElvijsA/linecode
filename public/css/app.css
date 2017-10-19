@@ -16687,6 +16687,10 @@ body {
   font-family: 'Open Sans',sans-serif;
 }
 
+.ck-editor__editable {
+  min-height: 300px;
+}
+
 .right {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
@@ -16719,6 +16723,8 @@ small {
 a {
   color: #222;
   text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 a.button {
@@ -16897,6 +16903,18 @@ nav ul .active {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+
+  .box {
+    padding: 10px;
+  }
+
+  .card-content {
+    padding: 10px;
+  }
+
+  .main {
+    margin: 0;
   }
 
   .container {

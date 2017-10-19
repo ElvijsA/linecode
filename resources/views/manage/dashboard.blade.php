@@ -14,20 +14,20 @@
         <nav class="level">
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Tweets</p>
-      <p class="title">3,456</p>
+      <p class="heading">Categories</p>
+      <p class="title">{{$categories->count()}}</p>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Following</p>
-      <p class="title">123</p>
+      <p class="heading">Blog Posts</p>
+      <p class="title">{{$posts->count()}}</p>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Followers</p>
-      <p class="title">456K</p>
+      <p class="heading">Users</p>
+      <p class="title">{{$users->count()}}</p>
     </div>
   </div>
   <div class="level-item has-text-centered">

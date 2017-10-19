@@ -24,11 +24,11 @@
       Blog
     </p>
     <ul class="menu-list">
-      <li><a href="{{route('users.index')}}">Manage Posts</a></li>
+      <li><a href="{{route('posts.index')}}">Manage Posts</a></li>
       <li>
           <a class="has-submenu">Categories &amp; Tags</a>
           <ul class="submenu">
-            <li><a href="{{route('roles.index')}}">Categories</a></li>
+            <li><a href="{{route('categories.index')}}">Categories</a></li>
             <li><a href="">Tags</a></li>
           </ul>
       </li>
