@@ -29,7 +29,7 @@
           <a class="has-submenu">Categories &amp; Tags</a>
           <ul class="submenu">
             <li><a href="{{route('categories.index')}}">Categories</a></li>
-            <li><a href="">Tags</a></li>
+            <li><a href="{{route('tags.index')}}">Tags</a></li>
           </ul>
       </li>
       <li><a href="">Comments</a></li>

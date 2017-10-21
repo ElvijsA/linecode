@@ -4525,11 +4525,11 @@ a.box:active {
 }
 
 .progress::-webkit-progress-value {
-  background-color: #4a4a4a;
+  background-color: #999;
 }
 
 .progress::-moz-progress-bar {
-  background-color: #4a4a4a;
+  background-color: #999;
 }
 
 .progress.is-white::-webkit-progress-value {
@@ -16652,8 +16652,6 @@ button.nav-item.is-active {
 }
 
 button.nav-item.is-tab {
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
   padding-bottom: calc(0.375em - 1px);
   padding-left: 1rem;
   padding-right: 1rem;
@@ -16662,7 +16660,6 @@ button.nav-item.is-tab {
 
 button.nav-item:hover {
   border-bottom-color: #ff3333;
-  border-top-color: transparent;
 }
 
 button.nav-item.is-active {
@@ -16673,7 +16670,32 @@ button.nav-item.is-active {
 
 .nav-item a:not(.button),
 a.nav-item:not(.button) {
-  color: #222;
+  color: #999;
+  font-family: 'Open Sans',sans-serif;
+}
+
+.box h1 {
+  font-size: 32px;
+}
+
+.box h2 {
+  font-size: 28px;
+}
+
+.box h3 {
+  font-size: 22px;
+}
+
+.box h4 {
+  font-size: 18px;
+}
+
+.box h5 {
+  font-size: 14px;
+}
+
+.box h6 {
+  font-size: 10px;
 }
 
 /*PAGE MAIN STYLE
@@ -16712,12 +16734,12 @@ small {
 }
 
 .is-button {
-  background-color: #333;
-  border: 1px solid #ddd;
+  background-color: #fff;
+  border: 1px solid #E7EEF8;
   border-radius: 3px;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  color: #fff;
+  color: #333;
 }
 
 a {
@@ -16800,7 +16822,7 @@ input.search {
   background-color: #333;
 }
 
-nav ul {
+nav.main-nav ul {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -16812,7 +16834,7 @@ nav ul {
           justify-content: center;
 }
 
-nav ul li {
+nav.main-nav ul li {
   padding: 5px 10px;
   text-transform: uppercase;
   font-size: 18px;
@@ -16822,7 +16844,7 @@ nav ul li {
           transition-duration: 0.2s;
 }
 
-nav ul li:hover {
+nav.main-nav ul li:hover {
   background-color: #ff0000;
   color: #fff;
   margin-top: 4px;
@@ -16831,7 +16853,7 @@ nav ul li:hover {
           box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.2);
 }
 
-nav ul .active {
+nav.main-nav ul .active {
   background-color: #E7EEF8;
   color: #333;
   margin-top: 4px;
@@ -16948,7 +16970,7 @@ footer {
   text-align: center;
   color: #ddd;
   font-family: 'Oswald',sans-serif;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 /*BLOG TOP STYLE
@@ -17282,7 +17304,7 @@ footer {
 }
 
 .social a {
-  color: #222;
+  color: #999;
 }
 
 .social a:hover {

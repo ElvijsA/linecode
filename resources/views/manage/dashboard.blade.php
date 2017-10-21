@@ -32,8 +32,8 @@
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Likes</p>
-      <p class="title">789</p>
+      <p class="heading">Tags</p>
+      <p class="title">{{$tags->count()}}</p>
     </div>
   </div>
 </nav>

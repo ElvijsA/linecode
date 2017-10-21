@@ -6,15 +6,7 @@
     <div class="main">
 
 
-      <div class="col1">
-       <div class="video-box">
-        <div class="video-strip">
-          <div class="flex-video">
-            <iframe src="https://www.youtube.com/embed/jxJYbfUCCGo" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
 
     <div class="box">
@@ -109,9 +101,19 @@
     </div>
   </div>
 
+
+
   </div>
 
-
+  <div class="col1">
+   <div class="video-box">
+    <div class="video-strip">
+      <div class="flex-video">
+        <iframe src="https://www.youtube.com/embed/jxJYbfUCCGo" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  </div>
+</div>
 
     </div>
     @include('_includes.sidepanel.main')

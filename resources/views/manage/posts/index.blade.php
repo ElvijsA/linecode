@@ -41,6 +41,7 @@
             @endforeach
           </tbody>
         </table>
+        {!!"<center>"!!}{{ $posts->links()}}{!!"</center>"!!}
       </div>
  <!-- end of .card -->
 

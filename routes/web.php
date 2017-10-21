@@ -29,4 +29,5 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
   Route::resource('/posts', 'PostController');
   Route::resource('/categories', 'CategoryController');
+    Route::resource('/tags', 'TagController');
 });

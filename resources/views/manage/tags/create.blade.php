@@ -11,20 +11,20 @@
 
     <div class="columns">
       <div class="column">
-        <form action="{{route('categories.store')}}" method="POST">
+        <form action="{{route('tags.store')}}" method="POST">
           {{csrf_field()}}
 
           <div class="field">
-            <label for="name" class="label">Category Title</label>
+            <label for="name" class="label">Tag Name</label>
             <p class="control">
               <input class="input" type="text" name="name" id="name">
             </p>
           </div>
 
-          <button class="button is-success">Create Category</button>
+          <button class="button is-success">Create Tag</button>
         </form>
       </div>
     </div>
   </div>
 
-@endsection
+  @endsection

@@ -8,8 +8,17 @@
       </div>
     </div>
     <hr class="m-t-0">
-    <p>{{$post->post_image}}</p>
-    <p>{{$post->category->name}}</p>
+    <p class="is-pulled-right"><strong>Category</strong> - {{$post->category->name}}</p>
+    <img src="{{ asset('images/post_images/' . $post->post_image )}}" alt="">
+
+
+    <p>
+    <strong>Tags</strong> -
+      @foreach ($post->tags as $tag )
+      <span class="tag is-dark">{{$tag->name}}</span>
+      @endforeach
+    </p>
+    <hr>
     <p>{!! $post->body !!}</p>
 
 

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Purifier;
+use Image;
+use Storage;
 use App\Category;
 use App\Post;
+use App\Tag;
 
 class PostController extends Controller
 {
@@ -15,7 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at','desc')->paginate(10);
         return view('manage.posts.index')->withPosts($posts);
     }
 
@@ -27,7 +31,8 @@ class PostController extends Controller
     public function create()
     {
       $categories = Category::all();
-      return view('manage.posts.create')->withCategories($categories);
+      $tags = Tag::all();
+      return view('manage.posts.create')->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -48,6 +53,8 @@ class PostController extends Controller
 
         //Handle File Upload
           if($request->hasFile('post_image')){
+            //Get Image
+            $image = $request->file('post_image');
             //Get file name with extension
             $filenameWithExt = $request->file('post_image')->getClientOriginalName();
             //Get just filename
@@ -56,8 +63,10 @@ class PostController extends Controller
             $extension = $request->file('post_image')->getClientOriginalExtension();
             //Filename to Store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //File Store Location
+            $location = public_path('images/post_images/' . $fileNameToStore);
             //Upload Image
-            $path = $request->file('post_image')->storeAs('public/images/post_images', $fileNameToStore);
+            Image::make($image)->resize(800, 400)->save($location);
           }else{
             $fileNameToStore = 'noimage.jpg';
           }
@@ -67,16 +76,16 @@ class PostController extends Controller
           $post->title = $request->input('title');
           $post->slug = $request->input('slug');
           $post->category_id = $request->input('category_id');
-          $post->body = $request->input('body');
+          $post->body = Purifier::clean($request->body);
           $post->user_id = auth()->user()->id;
           $post->post_image = $fileNameToStore;
 
+          $post->save();
+          $post->tags()->sync($request->tags,false);
+
           //Save PostController
-          if($post->save()){
-          return redirect()->route('posts.index', $post->id);
-          }else{
-          return redirect()->route('posts.create');
-          }
+          return redirect()->route('posts.index');
+
     }
 
     /**
@@ -101,7 +110,8 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $categories = Category::all();
-        return view('manage.posts.edit')->withPost($post)->withCategories($categories);
+        $tags = Tag::all();
+        return view('manage.posts.edit')->withPost($post)->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -119,38 +129,47 @@ class PostController extends Controller
       $this->validate($request, [
           'title' => 'required',
           'category_id' => 'required|integer',
-          'body' => 'required'
+          'body' => 'required',
+          'post_image' => 'image|nullable|max:1999'
       ]);
 
       // Handle File Upload
-      if($request->hasFile('cover_image')){
+      if($request->hasFile('post_image')){
+        //Get file
+        $image = $request->file('post_image');
         //Get tile name with the extension
-        $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+        $filenameWithExt = $request->file('post_image')->getClientOriginalName();
         //Get just filename
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
         //Get just ext
-        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        $extension = $request->file('post_image')->getClientOriginalExtension();
         //Filename to store
         $fileNameToStore = $filename.'_'.time().'.'.$extension;
+        //File Store Location
+        $location = public_path('images/post_images/' . $fileNameToStore);
         //Upload Image
-        $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+        Image::make($image)->resize(800, 400)->save($location);
+        /*NEED TO FIX OLD FILE DELETE ON UPDATE
+        */
+        //OLD fileNameToStore
+        //$oldFilename = $post->image;
+        //Update Post Object
+        $post->post_image = $fileNameToStore;
+        //Delete Old Image
+        //Storage::delete('post_images/'.$oldFilename);
       }
 
-      //Update Post Setting Variables
-      $post->title = $request->input('title');
-      $post->category_id = $request->input('category_id');
-      $post->body = $request->input('body');
-      if($request->hasFile('cover_image')){
-          $post->cover_image = $fileNameToStore;
-      }
+        //Update Post Setting Variables
+        $post->title = $request->input('title');
+        $post->category_id = $request->input('category_id');
+        $post->body = Purifier::clean($request->body);
 
-      //Save PostController
-      if($post->save())
-      {return redirect()->route('posts.show', $post->id);}
-      else
-      {return redirect()->route('posts.create');}
-    }
+        $post->save();
+        $post->tags()->sync($request->tags,true);
 
+        //Save PostController
+        return redirect()->route('posts.show', $post->id);
+}
     /**
      * Remove the specified resource from storage.
      *
