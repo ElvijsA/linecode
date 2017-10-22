@@ -1,3 +1,9 @@
+.sceditor-container iframe, .sceditor-container textarea{
+min-height: 400px;
+}
+.pagination-previous, .pagination-next, .pagination-link{
+  background-color: #fff;
+}
 .is-muted{
     color: $grey-light !important;
 }

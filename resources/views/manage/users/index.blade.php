@@ -18,8 +18,6 @@
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Email</th>
-              <th>Date Created</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -28,10 +26,7 @@
             <tr>
               <td>{{$user->id}}</td>
               <td>{{$user->name}}</td>
-              <td>{{$user->email}}</td>
-              <td>{{$user->created_at->toFormattedDateString()}}</td>
-              <td><a class="button is-outlined is-small is-fullwidth" href="{{route('users.edit', $user->id)}}">Edit</a>
-              <a class="button is-outlined is-small" href="{{route('users.show', $user->id)}}">View</a></td>
+              <td><a class="button is-outlined is-small" href="{{route('users.show', $user->id)}}">View</a></td>
             </tr>
             @endforeach
           </tbody>

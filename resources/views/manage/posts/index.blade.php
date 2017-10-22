@@ -22,7 +22,6 @@
             <tr>
               <th>Id</th>
               <th>Title</th>
-              <th>Slug</th>
               <th>Category</th>
               <th></th>
             </tr>
@@ -33,10 +32,8 @@
             <tr>
               <td>{{$post->id}}</td>
               <td>{{$post->title}}</td>
-              <td>{{$post->slug}}</td>
               <td>{{$post->category->name}}</td>
-              <td><a class="button is-outlined is-small is-pulled-right" href="{{route('posts.edit', $post->id)}}">Edit</a>
-              <a class="button is-outlined is-small is-pulled-right" href="{{route('posts.show', $post->id)}}">View</a></td>
+              <td><a class="button is-outlined is-small is-pulled-right" href="{{route('posts.show', $post->id)}}">View</a></td>
             </tr>
             @endforeach
           </tbody>

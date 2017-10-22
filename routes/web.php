@@ -14,7 +14,6 @@
 
 Route::get('/', 'PageController@index');
 Route::get('home', 'PageController@index')->name('home');
-Route::get('blog', 'PageController@blog')->name('blog');
 Route::get('about', 'PageController@about');
 Route::get('contact', 'PageController@getContact');
 Route::post('contact', 'PageController@postContact');
@@ -29,5 +28,9 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
   Route::resource('/posts', 'PostController');
   Route::resource('/categories', 'CategoryController');
-    Route::resource('/tags', 'TagController');
+  Route::resource('/tags', 'TagController');
+  Route::resource('/images', 'ImageController');
 });
+
+Route::get('blog', 'BlogController@index')->name('blog');
+Route::get('blog.{id}.show', 'BlogController@show')->name('blog.show');

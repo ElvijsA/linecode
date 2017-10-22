@@ -2,6 +2,7 @@
 
 @section('styles')
   <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('js/minified/themes/default.min.css') }}" />
 @endsection
 
 @section('content')
@@ -85,25 +86,22 @@
 @endsection
 
 @section('scripts')
+
   <script src="{{ asset('js/select2.min.js') }}"></script>
-  <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.1/classic/ckeditor.js"></script>
-
+  <script src="{{ asset('js/minified/jquery.sceditor.xhtml.min.js') }}"></script>
   <script>
+  	$(function() {
+  	    // Replace class bbarea with skeditor
+  	    $('.ckeditor').sceditor({
+  	    plugins: 'xhtml',
+  			width: '100%',
+  			emoticonsRoot: '{{ asset('js') }}/',
+  			toolbar: "font,size,color,removeformat|cut,copy,paste|bold,italic,underline|left,center,right|bulletlist,orderedlist|link,code,quote|youtube,image,emoticon|source"
+  	    });
+  	});
 
-      ClassicEditor
-          .create( document.querySelector( '.ckeditor',{
-            resize: {
-                minHeight: 300,
-                maxHeight: 800
-            }
-          })
-
-
-        )
-          .catch( error => {
-              console.error( error );
-          } );
   </script>
+
   <script>
   $(document).ready(function() {
 

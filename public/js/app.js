@@ -795,6 +795,8 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_buefy___default.a);
 //Vue.component('example', require('./components/Example.vue'));
 
 
+$("iframe").parent().addClass("video-responsive");
+
 $(document).ready(function () {
     $('button.dropdown').hover(function (e) {
         $(this).toggleClass('is-open');

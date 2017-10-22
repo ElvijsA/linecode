@@ -20,6 +20,7 @@
           </ul>
       </li>
     </ul>
+
     <p class="menu-label">
       Blog
     </p>
@@ -33,6 +34,13 @@
           </ul>
       </li>
       <li><a href="">Comments</a></li>
+    </ul>
+
+    <p class="menu-label">
+      Gallery
+    </p>
+    <ul class="menu-list">
+      <li><a href="{{route('images.index')}}">Manage Images</a></li>
     </ul>
   </aside>
 </div>

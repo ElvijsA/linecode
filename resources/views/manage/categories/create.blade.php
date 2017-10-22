@@ -17,8 +17,11 @@
           <div class="field">
             <label for="name" class="label">Category Title</label>
             <p class="control">
-              <input class="input" type="text" name="name" id="name">
+              <input class="input {{$errors->has('name') ? 'is-danger' : ''}}" type="text" name="name" id="name">
             </p>
+            @if ($errors->has('name'))
+                <p class="help is-danger">{{$errors->first('name')}}</p>
+            @endif
           </div>
 
           <button class="button is-success">Create Category</button>

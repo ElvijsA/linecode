@@ -47,7 +47,7 @@ class PostController extends Controller
           'title' => 'required|max:255',
           'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
           'category_id' => 'required|integer',
-          'body' => 'required',
+          'body' => 'required|min:20',
           'post_image' => 'image|nullable|max:1999',
         ]);
 
@@ -76,7 +76,7 @@ class PostController extends Controller
           $post->title = $request->input('title');
           $post->slug = $request->input('slug');
           $post->category_id = $request->input('category_id');
-          $post->body = Purifier::clean($request->body);
+          $post->body = Purifier::clean($request->body, 'youtube');
           $post->user_id = auth()->user()->id;
           $post->post_image = $fileNameToStore;
 
@@ -127,9 +127,9 @@ class PostController extends Controller
       $post = Post::find($id);
       //Validate data
       $this->validate($request, [
-          'title' => 'required',
+          'title' => 'required|max:255',
           'category_id' => 'required|integer',
-          'body' => 'required',
+          'body' => 'required|min:20',
           'post_image' => 'image|nullable|max:1999'
       ]);
 
@@ -162,7 +162,7 @@ class PostController extends Controller
         //Update Post Setting Variables
         $post->title = $request->input('title');
         $post->category_id = $request->input('category_id');
-        $post->body = Purifier::clean($request->body);
+        $post->body = Purifier::clean($request->body, 'youtube');
 
         $post->save();
         $post->tags()->sync($request->tags,true);

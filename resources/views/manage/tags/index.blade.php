@@ -32,8 +32,7 @@
             <tr>
               <td>{{$tag->id}}</td>
               <td>{{$tag->name}}</td>
-              <td><a class="button is-outlined is-small is-pulled-right" href="{{route('tags.edit', $tag->id)}}">Edit</a>
-              <a class="button is-outlined is-small is-pulled-right" href="{{route('tags.show', $tag->id)}}">View</a></td>
+              <td><a class="button is-outlined is-small is-pulled-right" href="{{route('tags.show', $tag->id)}}">View</a></td>
             </tr>
             @endforeach
           </tbody>

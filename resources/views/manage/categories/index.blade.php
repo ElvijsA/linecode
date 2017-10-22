@@ -14,7 +14,7 @@
         <a href="{{route('categories.create')}}" class="button is-primary is-pulled-right"><i class="fa fa-user-plus m-r-10"></i> Create New Category</a>
       </div>
     </div>
-    
+
 
     <div class="card">
       <div class="card-content">
@@ -32,8 +32,7 @@
             <tr>
               <td>{{$category->id}}</td>
               <td>{{$category->name}}</td>
-              <td><a class="button is-outlined is-small is-pulled-right" href="{{route('categories.edit', $category->id)}}">Edit</a>
-              <a class="button is-outlined is-small is-pulled-right" href="{{route('categories.show', $category->id)}}">View</a></td>
+              <td><a class="button is-outlined is-small is-pulled-right" href="{{route('categories.show', $category->id)}}">View</a></td>
             </tr>
             @endforeach
           </tbody>

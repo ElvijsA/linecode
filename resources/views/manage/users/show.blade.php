@@ -30,6 +30,15 @@
           </p>
         </div>
 
+
+        <div class="field">
+          <label for="email" class="label">Create Date</label>
+          <p>
+            {{$user->created_at->toFormattedDateString()}}
+          </p>
+        </div>
+
+
         <div class="field">
           <label for="email" class="label">Roles</label>
           <ul>
