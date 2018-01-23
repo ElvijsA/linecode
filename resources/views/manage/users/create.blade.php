@@ -46,7 +46,7 @@
 @section('scripts')
   <script>
     var app = new Vue({
-      el: '#app',
+      el: '.box',
       data: {
         auto_password: true
       }

@@ -5,12 +5,22 @@
     <div class="econtent">
     <div class="main">
 
-
-
-
+<!--
+ <div class="box">
+    <div class="small-title">Youtube Channel</div><h1 class="title">LINECODE</h1>
+      <div class="col1">
+        <div class="video-box">
+         <div class="video-strip">
+           <div class="flex-video">
+             <iframe src="https://www.youtube.com/embed/jxJYbfUCCGo" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+           </div>
+         </div>
+       </div>
+     </div>
+  </div>
 
     <div class="box">
-    <div class="small-title">Latest</div><h1 class="title">Works</h1>
+    <div class="small-title">Latest</div><h1 class="title">PROJECTS</h1>
     <div class="works">
     <div class="grid-container">
 
@@ -46,9 +56,13 @@
     </div>
     </div>
     </div>
-
+-->
+<div class="box">
+   <div class="small-title">Current</div><h1 class="title">STATUS</h1>
+   CMS is still in development currrently working on Admin Dashboard.
+</div>
   <div class="box">
-  <div class="small-title">Top</div><h1 class="title">Posts</h1>
+  <div class="small-title">Most viewed</div><h1 class="title">POSTS</h1>
 
   <div id="small-blog">
     <div class="flex">
@@ -105,15 +119,7 @@
 
   </div>
 
-  <div class="col1">
-   <div class="video-box">
-    <div class="video-strip">
-      <div class="flex-video">
-        <iframe src="https://www.youtube.com/embed/jxJYbfUCCGo" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-      </div>
-    </div>
-  </div>
-</div>
+
 
     </div>
     @include('_includes.sidepanel.main')

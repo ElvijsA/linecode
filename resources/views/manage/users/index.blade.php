@@ -26,7 +26,7 @@
             <tr>
               <td>{{$user->id}}</td>
               <td>{{$user->name}}</td>
-              <td><a class="button is-outlined is-small" href="{{route('users.show', $user->id)}}">View</a></td>
+              <td><a class="button is-outlined is-small is-pulled-right" href="{{route('users.show', $user->id)}}">View</a></td>
             </tr>
             @endforeach
           </tbody>

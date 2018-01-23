@@ -1,9 +1,4 @@
-# ECODEWS 
-PERSONAL WEBSITE
+# LINECODE CMS
+<img src="https://raw.github.com/ElvijsA/linecode/master/public/images/author.jpg" width="100" height="100" />
 
-<img src="https://raw.github.com/ElvijsA/ecodews/master/public/images/logo.png" width="100" height="100" />
-
-Using
-LARAVEL 5.5
-Bulma
-Buefy
+More info aveilable soon

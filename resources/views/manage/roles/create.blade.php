@@ -78,7 +78,7 @@
   <script>
 
     var app = new Vue({
-      el: '#app',
+      el: '.box',
       data: {
         permissionsSelected: []
       }

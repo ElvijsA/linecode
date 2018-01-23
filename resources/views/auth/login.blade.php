@@ -23,7 +23,7 @@
                     <div class="field">
                         <label for="password" class="label">Password</label>
                         <p class="control">
-                            <input type="text" class="input {{$errors->has('password') ? 'is-danger' : ''}}" name="password" id="password">
+                            <input type="password" class="input {{$errors->has('password') ? 'is-danger' : ''}}" name="password" id="password">
                         </p>
                         @if ($errors->has('password'))
                             <p class="help is-danger">{{$errors->first('password')}}</p>

@@ -96,7 +96,7 @@
 @section('scripts')
   <script>
     var app = new Vue({
-      el: '#app',
+      el: '.box',
       data: {
         permissionType: 'basic',
         resource: '',

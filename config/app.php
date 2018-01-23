@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'ECODEWS'),
+    'name' => env('APP_NAME', 'CODELINES'),
+    'ver' => env('APP_VER', '1.0'),
 
     /*
     |--------------------------------------------------------------------------

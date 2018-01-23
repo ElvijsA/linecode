@@ -30,6 +30,8 @@
             </p>
           </div>
 
+      
+
           <div class="field">
             <label for="password" class="label">Password</label>
 
@@ -58,7 +60,7 @@
           @foreach ($roles as $role)
             <div class="field">
               <p class="control">
-                  <b-checkbox  v-model="rolesSelected" :native-value="{{$role->id}}">{{$role->display_name}}</b-checkbox>
+                  <b-radio  v-model="rolesSelected" :native-value="{{$role->id}}">{{$role->display_name}}</b-radio>
               </p>
             </div>
           @endforeach
@@ -80,10 +82,10 @@
 @section('scripts')
   <script>
     var app = new Vue({
-      el: '#app',
+      el: '.box',
       data: {
         password_options: 'keep',
-        rolesSelected: {!! $user->roles->pluck('id') !!}
+        rolesSelected:  {!! $user->roles{0}->id !!}
       }
     });
   </script>

@@ -28,8 +28,8 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::resource('/roles', 'RoleController', ['except' => 'destroy']);
   Route::resource('/posts', 'PostController');
   Route::resource('/categories', 'CategoryController');
-  Route::resource('/tags', 'TagController');
-  Route::resource('/images', 'ImageController');
+  Route::resource('/tags', 'TagController');  
+  Route::get('/images', 'ImagesController@index')->name('images.index');
 });
 
 Route::get('blog', 'BlogController@index')->name('blog');

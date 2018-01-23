@@ -58,6 +58,7 @@
     <ul>
       <a href="{{route('home')}}"><li class="{{ Request::is('home' , '/') ? "active" : "" }}">Home</li></a>
       <a href="{{route('blog')}}"><li class="{{ Request::is('blog') ? "active" : "" }}">Blog</li></a>
+      <a href=""><li>Gallery</li></a>
       <a href=""><li>About</li></a>
       <a href=""><li>Contact</li></a>
     </ul>

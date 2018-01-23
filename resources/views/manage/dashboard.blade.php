@@ -37,7 +37,9 @@
     </div>
   </div>
 </nav>
-<div class="box">Admin Notifications will be here</div>
+<div class="box">
+    <file-field></file-field>
+</div>
       </div>
     </div>
 </div>

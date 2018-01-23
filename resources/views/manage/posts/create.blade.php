@@ -22,7 +22,7 @@
           <div class="field">
             <label for="name" class="label">Title</label>
             <p class="control">
-              <input class="input {{$errors->has('title') ? 'is-danger' : ''}}" type="text" value="{{ old('title') }}" name="title" id="title">
+              <input class="input is-large {{$errors->has('title') ? 'is-danger' : ''}}" type="text" value="{{ old('title') }}" name="title" id="title" v-model="title" />
             </p>
             @if ($errors->has('title'))
                 <p class="help is-danger">{{$errors->first('title')}}</p>
@@ -31,9 +31,10 @@
 
           <div class="field">
             <label for="name" class="label">Slug</label>
-            <p class="control">
-              <input class="input {{$errors->has('slug') ? 'is-danger' : ''}}" type="text" value="{{ old('slug') }}" name="slug" id="slug">
-            </p>
+
+            <slug-widget url="{{url('/')}}" subdirectory="/blog/" :title="title" @slug-changed="updateSlug"></slug-widget>
+            <input type="hidden" v-model="slug" value="{{ old('slug') }}" name="slug" id="slug">
+
             @if ($errors->has('slug'))
                 <p class="help is-danger">{{$errors->first('slug')}}</p>
             @endif
@@ -92,9 +93,23 @@
 @endsection
 
 @section('scripts')
+   <script>
+      var app = new Vue({
+         el: '.box',
+         data: {
+            title: '',
+            slug: ''
+         },
+         methods: {
+            updateSlug: function(val) {
+               this.slug = val;
+            }
+         }
+      });
+   </script>
+
   <script src="{{ asset('js/select2.min.js') }}"></script>
   <script src="{{ asset('js/minified/jquery.sceditor.bbcode.min.js') }}"></script>
-
 
   <script>
   	$(function() {
@@ -108,7 +123,6 @@
   	});
 
   </script>
-
 
   <script>
   $(document).ready(function() {
