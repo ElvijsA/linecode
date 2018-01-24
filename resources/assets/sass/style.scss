@@ -132,9 +132,10 @@ nav.main-nav ul  .active{
 }
 
 .box{
-  padding: 40px;
+  padding: 30px;
   border:1px solid #E7EEF8;
   box-shadow: none!important;
+  display: block;
 }
 .box ul, .box ol{
   padding: 1rem 2rem;
@@ -150,17 +151,21 @@ video{
 }
 .video-responsive{
     overflow:hidden;
-    padding-bottom:56.25%;
+    padding-bottom:44%;
     position:relative;
     height:0;
 }
-iframe{
+.post-body iframe{
     left:0;
     top:0;
     height:100%!important;
     width:100%!important;
     position:absolute;
 }
+.post-body p{
+   margin: 20px;
+}
+
 .box code{
   display: block;
   padding: 2px;

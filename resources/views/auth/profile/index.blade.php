@@ -6,7 +6,7 @@
     <div class="main">
 
    <div class="box">
-      <div class="small-title">Contact</div><h1 class="title">LINECODE</h1>
+      <div class="small-title">User</div><h1 class="title">PROFILE</h1>
       CMS is still in development currrently working on Admin Dashboard.
    </div>
 

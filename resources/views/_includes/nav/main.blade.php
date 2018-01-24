@@ -12,7 +12,7 @@
         <button class="dropdown is-aligned-right nav-item is-tab is-button" >
           {{ Auth::user()->name }}<i class="fa fa-caret-down m-l-10" aria-hidden="true"></i>
           <ul class="dropdown-menu" style="overflow: visible;">
-            <li><a href="#">
+            <li><a href="{{route('profile')}}">
                   <span class="icon">
                     <i class="fa fa-fw fa-user-circle-o m-r-5"></i>
                   </span>Profile
@@ -58,8 +58,7 @@
     <ul>
       <a href="{{route('home')}}"><li class="{{ Request::is('home' , '/') ? "active" : "" }}">Home</li></a>
       <a href="{{route('blog')}}"><li class="{{ Request::is('blog') ? "active" : "" }}">Blog</li></a>
-      <a href=""><li>Gallery</li></a>
-      <a href=""><li>About</li></a>
-      <a href=""><li>Contact</li></a>
+      <a href="{{route('about')}}"><li class="{{ Request::is('about') ? "active" : "" }}">About</li></a>
+      <a href="{{route('contact')}}"><li class="{{ Request::is('contact') ? "active" : "" }}">Contact</li></a>
     </ul>
   </nav>

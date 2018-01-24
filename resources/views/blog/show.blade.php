@@ -23,11 +23,13 @@
               @foreach ($post->tags as $tag )
               <span class="tag is-dark">{{$tag->name}}</span>
               @endforeach
-          </div>
-          </div>
-          {!! $post->body !!}
-          <div class="info is-pulled-right">
-          <a href="{{route('blog')}}" class="button">Back to Blog</a>
+         </div>
+         </div>
+         <div class="post-body">
+            {!! $post->body !!}
+         </div>
+          <div class="info">
+          <a href="{{route('blog')}}" class="button is-pulled-right">Back to Blog</a>
           </div>
         </div>
         </div>

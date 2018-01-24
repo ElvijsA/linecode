@@ -4,9 +4,10 @@
   <div class="container">
     <div class="econtent">
     <div class="main">
-
       @foreach ($posts as $post)
+
         <div class="box">
+
         <div id="blog">
           <div class="title">
             {{ $post->title }}
