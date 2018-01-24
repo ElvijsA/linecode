@@ -20,6 +20,6 @@ class BlogController extends Controller
      */
     public function show($id){
       $post = Post::find($id);
-      return view('blog.show')->withPosts($post);
+      return view('blog.show')->withPost($post);
     }
 }

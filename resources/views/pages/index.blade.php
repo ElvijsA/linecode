@@ -57,67 +57,34 @@
     </div>
     </div>
 -->
-<div class="box">
-   <div class="small-title">Current</div><h1 class="title">STATUS</h1>
-   CMS is still in development currrently working on Admin Dashboard.
-</div>
+   <div class="box">
+      <div class="small-title">Current</div><h1 class="title">STATUS</h1>
+      CMS is still in development currrently working on Admin Dashboard.
+   </div>
+
+
   <div class="box">
-  <div class="small-title">Most viewed</div><h1 class="title">POSTS</h1>
+  <div class="small-title">Latest</div><h1 class="title">POSTS</h1>
 
-  <div id="small-blog">
-    <div class="flex">
-    <div class="image">
-      <img src="images/test.jpg" alt="">
-    </div>
-    <div class="title">
-      How to become minimalist - my story
-    </div>
-    </div>
-    <div class="info">
-      <div>
-      By Elvis Ecodews - May 31 2017 <i class="fa fa-comments" aria-hidden="true"></i> 1
+  @foreach ($posts as $post)
+     <div id="small-blog">
+      <div class="flex">
+      <div class="image">
+         <img src="{{ asset('images/post_images/' . $post->post_image )}}" alt="{{$post->post_image}}">
       </div>
-      <a href="" class="button">Read More</a>
+      <div class="title">
+          {{ $post->title}}
       </div>
-  </div>
-
-  <div id="small-blog">
-    <div class="flex">
-    <div class="image">
-      <img src="images/test.jpg" alt="">
-    </div>
-    <div class="title">
-      Greece hotel holiday luxury house
-    </div>
-    </div>
-    <div class="info">
-      <div>
-      By Elvis Ecodews - May 31 2017 <i class="fa fa-comments" aria-hidden="true"></i> 1
       </div>
-      <a href="" class="button">Read More</a>
-      </div>
-  </div>
-
-  <div id="small-blog">
-    <div class="flex">
-    <div class="image">
-      <img src="images/test.jpg" alt="">
-    </div>
-    <div class="title">
-      Isn’t it wonderful to be alive?
-    </div>
-    </div>
-    <div class="info">
-    <div>
-    By Elvis Ecodews - May 31 2017 <i class="fa fa-comments" aria-hidden="true"></i> 1
-    </div>
-    <a href="" class="button">Read More</a>
-    </div>
-  </div>
-
-
-
-  </div>
+      <div class="info">
+         <div>
+         {{ $post->category->name }} By {{ $post->user->name }} - {{$post->created_at->toFormattedDateString()}} <i class="fa fa-comments" aria-hidden="true"></i> 1
+         </div>
+         <a href="{{route('blog.show', $post->id)}}" class="button">Read More</a>
+         </div>
+     </div>
+  @endforeach
+ </div>
 
 
 
