@@ -11,16 +11,19 @@
 |
 */
 
-
+//Base page routes
 Route::get('/', 'PageController@index');
 Route::get('home', 'PageController@index')->name('home');
 Route::get('about', 'PageController@about')->name('about');
 Route::get('contact', 'PageController@contact')->name('contact');
 
+//Authentication routes
 Auth::routes();
+
+//User routes
 Route::get('profile', 'ProfileController@index')->name('profile')->middleware('auth');
 
-
+//Dashboard routes
 Route::prefix('manage')->middleware('role:superadministrator|administrator|editor|author')->group(function() {
   Route::get('/', 'ManageController@index');
   Route::get('/dashboard', 'ManageController@dashboard')->name('manage.dashboard');
@@ -33,5 +36,9 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::get('/images', 'ImagesController@index')->name('images.index');
 });
 
+//Blog routes
 Route::get('blog', 'BlogController@index')->name('blog');
 Route::get('blog.{id}.show', 'BlogController@show')->name('blog.show');
+
+//Comment routes
+Route::post('comments/{post_id}', ['usus' => 'CommentsController@store', 'as' => 'comments.store']);

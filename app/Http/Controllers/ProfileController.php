@@ -8,15 +8,12 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
    public function index(){
-
-          return view('auth/profile/index');
-
+   $user = Auth::user();
+   return view('auth/profile/index')->withUser($user);
    }
 
    public function edit(){
-
-      return view('auth/profile/index');
-      
+   return view('auth/profile/index');
    }
 
 }

@@ -252,3 +252,12 @@ footer{
     padding-bottom: 46%;
   }
 }
+.boxsizingBorder {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.boxsizingBorder textarea{
+   width: 100%;
+   height: 80px;
+}

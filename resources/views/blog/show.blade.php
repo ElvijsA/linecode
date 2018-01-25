@@ -28,10 +28,34 @@
          <div class="post-body">
             {!! $post->body !!}
          </div>
-          <div class="info">
-          <a href="{{route('blog')}}" class="button is-pulled-right">Back to Blog</a>
+
+
           </div>
+
         </div>
+
+        <div class="box">
+         <div class="columns">
+             <div class="column">
+               <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
+                 {{csrf_field()}}
+                 <div class="field">
+                   <label for="name" class="label">Comment</label>
+                  <p class="control">
+                     <div class="boxsizingBorder">
+                       <textarea  class="input" name="name"></textarea>
+                     </div>
+                  </p>
+               </div>
+                  <a href="{{route('blog')}}" class="button is-pulled-right">Back to Blog</a>
+                  <input class="button is-pulled-right" type="submit" name="" value="Add Comment">
+               </form>
+            </div>
+         </div>
+        </div>
+
+        <div class="box">
+           COMMENTS HERE
         </div>
     </div>
 
