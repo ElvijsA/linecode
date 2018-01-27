@@ -39,6 +39,3 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
 //Blog routes
 Route::get('blog', 'BlogController@index')->name('blog');
 Route::get('blog.{id}.show', 'BlogController@show')->name('blog.show');
-
-//Comment routes
-Route::post('comments/{post_id}', ['usus' => 'CommentsController@store', 'as' => 'comments.store']);

@@ -35,30 +35,28 @@
         </div>
 
         <div class="box">
-         <div class="columns">
-             <div class="column">
-               <form action="{{route('posts.store')}}" method="POST" enctype="multipart/form-data">
-                 {{csrf_field()}}
-                 <div class="field">
-                   <label for="name" class="label">Comment</label>
-                  <p class="control">
-                     <div class="boxsizingBorder">
-                       <textarea  class="input" name="name"></textarea>
-                     </div>
-                  </p>
-               </div>
-                  <a href="{{route('blog')}}" class="button is-pulled-right">Back to Blog</a>
-                  <input class="button is-pulled-right" type="submit" name="" value="Add Comment">
-               </form>
-            </div>
+         <div class="add-comment-box">
+             <comment-widget></comment-widget>
          </div>
-        </div>
-
-        <div class="box">
-           COMMENTS HERE
         </div>
     </div>
 
     </div>
   </div>
+@endsection
+@section('scripts')
+@if (Auth::check())
+      <script>
+         var app = new Vue({
+            el: '.add-comment-box',
+            data: {
+               api_token: '{{Auth::user()->api_token}}',
+               user_id: '{{Auth::user()->id}}',
+               post_id: '{{$post->id}}'
+            }
+         });
+      </script>
+@endif
+      <script>
+      </script>
 @endsection

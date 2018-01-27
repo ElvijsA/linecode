@@ -9,6 +9,7 @@ import Buefy from 'buefy'
 Vue.use(Buefy);
 
 Vue.component('slugWidget', require('./components/slugWidget.vue'));
+Vue.component('comment-widget', require('./components/commentWidget.vue'));
 
 require('./manage');
 

@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Comment;
 
-class CommentsController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        //
+      $comments = Comment::orderBy('created_at','desc')->paginate(10);
+      return $comments;
     }
 
     /**
@@ -34,7 +37,14 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $comment = new Comment();
+      $comment->user_id = $request->user_id;
+      $comment->post_id = $request->post_id;
+      $comment->parent_id = 0;
+      $comment->comment = $request->commentBody;
+      if($comment->save()){
+      return redirect()->route('home');
+     }
     }
 
     /**
