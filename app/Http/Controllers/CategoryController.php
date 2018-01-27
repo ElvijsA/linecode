@@ -12,21 +12,23 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $categories = Category::all();
-        return view('manage.categories.index')->withCategories($categories);
-    }
+
+   public function index()
+   {
+      $categories = Category::all();
+      return view('manage.categories.index')->withCategories($categories);
+   }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('manage.categories.create');
-    }
+
+   public function create()
+   {
+      return view('manage.categories.create');
+   }
 
     /**
      * Store a newly created resource in storage.
@@ -34,20 +36,21 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-          $this->validate($request, [
-            'name' => 'required|max:255'
-          ]);
 
-          $category = new Category();
-          $category->name = $request->name;
+   public function store(Request $request)
+   {
+      $this->validate($request, [
+         'name' => 'required|max:255'
+      ]);
 
-          if($category->save()){
-          return redirect()->route('categories.index', $category->id);
-        }else{
-          return redirect()->route('categories.create');
-        }
+      $category = new Category();
+      $category->name = $request->name;
+
+      if($category->save()){
+         return redirect()->route('categories.index', $category->id);
+      }else{
+         return redirect()->route('categories.create');
+      }
     }
 
     /**
@@ -56,12 +59,13 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+
+   public function show($id)
+   {
       $category = Category::find($id);
       $posts = $category->posts;
       return view('manage.categories.show')->withCategory($category)->withPosts($posts);
-    }
+   }
 
     /**
      * Show the form for editing the specified resource.
@@ -69,11 +73,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+
+   public function edit($id)
+   {
       $category = Category::find($id);
       return view('manage.categories.edit')->with('category', $category);
-    }
+   }
 
     /**
      * Update the specified resource in storage.
@@ -82,21 +87,22 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-      $this->validate($request, [
-        'name' => 'required|max:255'
-      ]);
-      
-        $category = Category::find($id);
-        $category->name = $request->input('name');
 
-        if($category->save()){
-          return redirect()->route('categories.show', $category->id);
-        }else{
-          return redirect()->route('categories.index');
-        }
-    }
+   public function update(Request $request, $id)
+   {
+      $this->validate($request, [
+         'name' => 'required|max:255'
+      ]);
+
+      $category = Category::find($id);
+      $category->name = $request->input('name');
+
+      if($category->save()){
+         return redirect()->route('categories.show', $category->id);
+      }else{
+         return redirect()->route('categories.index');
+      }
+   }
 
     /**
      * Remove the specified resource from storage.
@@ -104,8 +110,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+
+   public function destroy($id)
+   {
+      //
+   }
 }

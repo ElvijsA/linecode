@@ -14,6 +14,7 @@ Vue.component('comment-widget', require('./components/commentWidget.vue'));
 require('./manage');
 
 $("iframe").parent().addClass("video-responsive")
+
 $(document).ready(function(){
     $('button.dropdown').hover(function(e) {
         $(this).toggleClass('is-open')

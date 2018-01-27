@@ -12,30 +12,30 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        
-
         @yield('styles')
+
     </head>
+
     <body>
          @include('_includes.nav.main')
-
-        <div class="management-area" id="app">
-          <div class="container">
+         <div class="container">
             <div class="econtent">
-              <div class="main">
-              @yield('content')
-              </div>
-              <div class="side">
-              @include('_includes.nav.manage')
-              </div>
+
+               <div class="main">
+                  @yield('content')
+               </div>
+
+               <div class="side">
+                  @include('_includes.nav.manage')
+               </div>
+
             </div>
-          </div>
-        </div>
+         </div>
 
-        @include('_includes.footer.footer')
+         @include('_includes.footer.footer')
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}"></script>
-        @yield('scripts')
-    </body>
+   <!-- Scripts -->
+      <script src="{{ asset('js/app.js') }}"></script>
+      @yield('scripts')
+   </body>
 </html>

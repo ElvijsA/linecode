@@ -14,22 +14,24 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+
+   public function index()
+   {
       $role = Role::all();
       return view('manage.roles.index')->withRoles($role);
-    }
+   }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+
+   public function create()
+   {
       $permissions = Permission::all();
       return view('manage.roles.create')->withPermissions($permissions);
-    }
+   }
 
     /**
      * Store a newly created resource in storage.
@@ -37,8 +39,9 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+
+   public function store(Request $request)
+   {
       $this->validate($request, [
         'display_name' => 'required|max:255',
         'name' => 'required|max:100|alpha_dash|unique:roles,name',
@@ -55,10 +58,9 @@ class RoleController extends Controller
         $role->syncPermissions(explode(',', $request->permissions));
       }
 
-
       //Session::flesh('success', 'Successfully updated the '. $role->display_name .' role in the database');
       return redirect()->route('roles.show', $role->id);
-    }
+   }
 
     /**
      * Display the specified resource.
@@ -66,11 +68,12 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $role = Role::findOrFail($id);
-        return view('manage.roles.show')->withRole($role)->with('permissions');
-    }
+
+   public function show($id)
+   {
+      $role = Role::findOrFail($id);
+      return view('manage.roles.show')->withRole($role)->with('permissions');
+   }
 
     /**
      * Show the form for editing the specified resource.
@@ -78,13 +81,14 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+
+   public function edit($id)
+   {
       $role = Role::where('id', $id)->with('permissions')->first();
       $permissions = Permission::all();
 
       return view('manage.roles.edit')->withRole($role)->withPermissions($permissions);
-    }
+   }
 
     /**
      * Update the specified resource in storage.
@@ -93,8 +97,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+
+   public function update(Request $request, $id)
+   {
       $this->validate($request, [
         'display_name' => 'required|max:255',
         'description' => 'sometimes|max:255'
@@ -109,10 +114,9 @@ class RoleController extends Controller
         $role->syncPermissions(explode(',', $request->permissions));
       }
 
-
       //Session::flesh('success', 'Successfully updated the '. $role->display_name .' role in the database');
       return redirect()->route('roles.show', $id);
-    }
+   }
 
     /**
      * Remove the specified resource from storage.
@@ -120,8 +124,9 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+
+   public function destroy($id)
+   {
+      //
+   }
 }

@@ -12,10 +12,10 @@ class UserObserver
      * @param  \App\User  $user
      * @return void
      */
-    public function creating(User $user)
-    {
+
+   public function creating(User $user)
+   {
       $user->api_token = bin2hex(openssl_random_pseudo_bytes(30));
-    }
+   }
 
 }
-?>

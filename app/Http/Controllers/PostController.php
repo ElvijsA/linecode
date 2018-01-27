@@ -21,23 +21,25 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $posts = Post::orderBy('created_at','desc')->paginate(10);
-        return view('manage.posts.index')->withPosts($posts);
-    }
+
+   public function index()
+   {
+      $posts = Post::orderBy('created_at','desc')->paginate(10);
+      return view('manage.posts.index')->withPosts($posts);
+   }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+
+   public function create()
+   {
       $categories = Category::all();
       $tags = Tag::all();
       return view('manage.posts.create')->withCategories($categories)->withTags($tags);
-    }
+   }
 
     /**
      * Store a newly created resource in storage.
@@ -45,18 +47,20 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-          'title' => 'required|max:255',
-          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
-          'category_id' => 'required|integer',
-          'body' => 'required|min:20',
-          'post_image' => 'image|nullable|max:1999',
-        ]);
 
-        //Handle File Upload
-          if($request->hasFile('post_image')){
+   public function store(Request $request)
+   {
+      //VALIDATE
+      $this->validate($request, [
+         'title' => 'required|max:255',
+         'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+         'category_id' => 'required|integer',
+         'body' => 'required|min:20',
+         'post_image' => 'image|nullable|max:1999',
+      ]);
+
+      //Handle File Upload
+         if($request->hasFile('post_image')){
             //Get Image
             $image = $request->file('post_image');
             //Get file name with extension
@@ -71,26 +75,25 @@ class PostController extends Controller
             $location = public_path('images/post_images/' . $fileNameToStore);
             //Upload Image
             Image::make($image)->resize(800, 400)->save($location);
-          }else{
+         }else{
             $fileNameToStore = 'noimage.jpg';
-          }
+         }
 
-        //Create Post
-          $post = new Post;
-          $post->title = $request->input('title');
-          $post->slug = $request->input('slug');
-          $post->category_id = $request->input('category_id');
-          $post->body = Purifier::clean($request->body, 'youtube');
-          $post->user_id = auth()->user()->id;
-          $post->post_image = $fileNameToStore;
+      //Create Post
+         $post = new Post;
+         $post->title = $request->input('title');
+         $post->slug = $request->input('slug');
+         $post->category_id = $request->input('category_id');
+         $post->body = Purifier::clean($request->body, 'youtube');
+         $post->user_id = auth()->user()->id;
+         $post->post_image = $fileNameToStore;
+         $post->save();
 
-          $post->save();
-          $post->tags()->sync($request->tags,false);
+         $post->tags()->sync($request->tags,false);
 
-          //Save PostController
-          return redirect()->route('posts.index');
-
-    }
+      //Save PostController
+      return redirect()->route('posts.index');
+   }
 
     /**
      * Display the specified resource.
@@ -98,11 +101,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $post = Post::find($id);
-        return view('manage.posts.show')->withPost($post);
-    }
+
+   public function show($id)
+   {
+      $post = Post::find($id);
+      return view('manage.posts.show')->withPost($post);
+   }
 
     /**
      * Show the form for editing the specified resource.
@@ -110,13 +114,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $post = Post::find($id);
-        $categories = Category::all();
-        $tags = Tag::all();
-        return view('manage.posts.edit')->withPost($post)->withCategories($categories)->withTags($tags);
-    }
+
+   public function edit($id)
+   {
+      $post = Post::find($id);
+      $categories = Category::all();
+      $tags = Tag::all();
+      return view('manage.posts.edit')->withPost($post)->withCategories($categories)->withTags($tags);
+   }
 
     /**
      * Update the specified resource in storage.
@@ -125,8 +130,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+
+   public function update(Request $request, $id)
+   {
       //Get current Post
       $post = Post::find($id);
       //Validate data
@@ -163,7 +169,7 @@ class PostController extends Controller
         //Storage::delete('post_images/'.$oldFilename);
       }
 
-        //Update Post Setting Variables
+      //Update Post Setting Variables
         $post->title = $request->input('title');
         $post->category_id = $request->input('category_id');
         $post->body = Purifier::clean($request->body, 'youtube');
@@ -171,22 +177,25 @@ class PostController extends Controller
         $post->save();
         $post->tags()->sync($request->tags,true);
 
-        //Save PostController
-        return redirect()->route('posts.show', $post->id);
+      //Save PostController
+      return redirect()->route('posts.show', $post->id);
 }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
 
-    /*API*/
-    public function apiCheckUnique(Request $request){
+   public function destroy($id)
+   {
+      //
+   }
+
+   /*API CHECK FOR UNIQUE SLUG*/
+   public function apiCheckUnique(Request $request)
+   {
       return json_encode(!Post::where('slug', '=', $request->slug)->exists());
    }
 }

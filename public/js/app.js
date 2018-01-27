@@ -1158,6 +1158,7 @@ Vue.component('comment-widget', __webpack_require__(49));
 __webpack_require__(52);
 
 $("iframe").parent().addClass("video-responsive");
+
 $(document).ready(function () {
     $('button.dropdown').hover(function (e) {
         $(this).toggleClass('is-open');

@@ -8,7 +8,8 @@ use App\Post;
 
 class BlogController extends Controller
 {
-    public function index(){
+    public function index()
+    {
       $posts = Post::orderBy('created_at','desc')->paginate(5);
       return view('blog.index')->withPosts($posts);
     }
@@ -18,7 +19,9 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id){
+
+    public function show($id)
+    {
       $post = Post::find($id);
       return view('blog.show')->withPost($post);
     }

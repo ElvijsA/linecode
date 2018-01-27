@@ -7,29 +7,33 @@ use App\Tag;
 
 class TagController extends Controller
 {
-    public function __construct() {
+   public function __construct()
+   {
       $this->middleware('auth');
-    }
+   }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+
+   public function index()
+   {
       $tags = Tag::all();
       return view('manage.tags.index')->withTags($tags);
-    }
+   }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('manage.tags.create');
-    }
+
+   public function create()
+   {
+      return view('manage.tags.create');
+   }
 
     /**
      * Store a newly created resource in storage.
@@ -37,8 +41,9 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+
+   public function store(Request $request)
+   {
       $this->validate($request, [
         'name' => 'required|max:255'
       ]);
@@ -48,10 +53,10 @@ class TagController extends Controller
 
       if($tag->save()){
       return redirect()->route('tags.index', $tag->id);
-    }else{
+      }else{
       return redirect()->route('tags.create');
-    }
-    }
+      }
+   }
 
     /**
      * Display the specified resource.
@@ -59,11 +64,12 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+
+   public function show($id)
+   {
       $tag = Tag::find($id);
       return view('manage.tags.show')->withTag($tag);
-    }
+   }
 
     /**
      * Show the form for editing the specified resource.
@@ -71,11 +77,12 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+
+   public function edit($id)
+   {
       $tag = Tag::find($id);
       return view('manage.tags.edit')->withTag($tag);
-    }
+   }
 
     /**
      * Update the specified resource in storage.
@@ -84,8 +91,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+
+   public function update(Request $request, $id)
+   {
       $tag = Tag::find($id);
       $tag->name = $request->input('name');
 
@@ -94,7 +102,7 @@ class TagController extends Controller
       }else{
         return redirect()->route('tags.index');
       }
-    }
+   }
 
     /**
      * Remove the specified resource from storage.
@@ -102,8 +110,9 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+
+   public function destroy($id)
+   {
+      //
+   }
 }

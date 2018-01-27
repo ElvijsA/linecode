@@ -1,18 +1,13 @@
+//Menege side menu area
 .side-menu {
 padding: 1rem;
 background-color: #fff;
 }
-
-.management-area{
-  font-size: 14px;
-}
-
 .submenu {
   max-height: 0;
   overflow: hidden;
   transition: all 0.2s ease-in-out;
 }
-
 .menu-list li ul{
   margin-top: 0;
   margin-bottom: 0;
