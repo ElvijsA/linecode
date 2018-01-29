@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Comment;
+use App\Post;
 
 class CommentController extends Controller
 {
@@ -38,13 +39,14 @@ class CommentController extends Controller
     public function store(Request $request)
     {
       $comment = new Comment();
-      $comment->user_id = $request->user_id;
-      $comment->post_id = $request->post_id;
+      $comment->user_id = request()->get('user_id');
+      $comment->post_id = request()->get('post_id');;
       $comment->parent_id = 0;
-      $comment->comment = $request->commentBody;
-      if($comment->save()){
-      return redirect()->route('home');
-     }
+      $comment->comment = request()->get('comment');
+      if($comment->save()) {
+         return ['status' => 'Comment Saved'];
+      }
+
     }
 
     /**
@@ -53,10 +55,12 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+
+   public function show($id)
+   {
+      $comments = Post::with('comments.user')->where('id', $id)->first()->comments;
+      return $comments;
+   }
 
     /**
      * Show the form for editing the specified resource.

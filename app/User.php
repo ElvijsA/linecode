@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
 
-   protected $hidden = ['password', 'remember_token',];
+   protected $hidden = ['password', 'remember_token', 'email', 'api_token'];
 
    public function posts()
    {
@@ -35,5 +35,10 @@ class User extends Authenticatable
    public function role()
    {
       return $this->belongsTo('App\Role');
+   }
+
+   public function comments()
+   {
+      return $this->hasMany('App\Comment');
    }
 }

@@ -38,4 +38,4 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
 
 //Blog routes
 Route::get('blog', 'BlogController@index')->name('blog');
-Route::get('blog.{id}.show', 'BlogController@show')->name('blog.show');
+Route::get('blog/show/{slug}', 'BlogController@show')->name('blog.show');

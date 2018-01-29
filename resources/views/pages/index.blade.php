@@ -80,7 +80,7 @@
          <div>
          {{ $post->category->name }} By {{ $post->user->name }} - {{$post->created_at->toFormattedDateString()}} <i class="fa fa-comments" aria-hidden="true"></i> 1
          </div>
-         <a href="{{route('blog.show', $post->id)}}" class="button">Read More</a>
+         <a href="{{route('blog.show', $post->slug)}}" class="button">Read More</a>
          </div>
      </div>
   @endforeach

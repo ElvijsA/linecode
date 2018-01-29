@@ -11,6 +11,11 @@ Vue.use(Buefy);
 Vue.component('slugWidget', require('./components/slugWidget.vue'));
 Vue.component('comment-widget', require('./components/commentWidget.vue'));
 
+//Comment components
+Vue.component('comment-message', require('./components/comment-system/commentMessage.vue'));
+Vue.component('comment-log', require('./components/comment-system/commentLog.vue'));
+Vue.component('comment-composer', require('./components/comment-system/commentComposer.vue'));
+
 require('./manage');
 
 $("iframe").parent().addClass("video-responsive")

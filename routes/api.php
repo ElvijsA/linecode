@@ -17,4 +17,7 @@ Route::middleware('auth:api')->group(function() {
    Route::get('/posts/unique', 'PostController@apiCheckUnique')->name('api.posts.unique');
    Route::get('/comments/store', 'Api\V1\CommentController@store')->name('api.comments.store');
 });
-Route::get('/comments', 'Api\V1\CommentController@index')->name('api.comments');
+
+Route::get('comments/{id}', 'Api\V1\CommentController@show')->name('api.comments');
+
+Route::post('comments', 'Api\V1\CommentController@store')->name('api.comments');

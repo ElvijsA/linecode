@@ -31,7 +31,10 @@
 
          <div class="box">
             <div class="add-comment-box">
-               <comment-widget></comment-widget>
+                  <comment-log :comments="comments"></comment-log>
+                  @if (Auth::check())
+                     <comment-composer v-on:commentsend="addComment"></comment-composer>
+                  @endif
             </div>
          </div>
       </div>
@@ -40,18 +43,31 @@
 @endsection
 
 @section('scripts')
-@if (Auth::check())
-      <script>
-         var app = new Vue({
-            el: '.add-comment-box',
-            data: {
-               api_token: '{{Auth::user()->api_token}}',
-               user_id: '{{Auth::user()->id}}',
-               post_id: '{{$post->id}}'
+   <script>
+      const app = new Vue ({
+         el: '#app',
+         data: {
+            comments:[]
+         },
+         methods: {
+            addComment(comment) {
+               @if(Auth::check()) {
+               comment.user_id = {{ Auth::user()->id }};
+               comment.user.name = '{{ Auth::user()->name }}';
+               comment.post_id = {{ $post->id }};
+               this.comments.push(comment);
+               //Save in to database
+               axios.post('/api/comments', comment).then(response => {
+                     //
+               })
+               }@endif
             }
-         });
-      </script>
-@endif
-      <script>
-      </script>
+         },
+         created(){
+            axios.get('/api/comments/{{ $post->id }}').then(response => {
+               this.comments = response.data;
+            });
+         }
+      });
+   </script>
 @endsection

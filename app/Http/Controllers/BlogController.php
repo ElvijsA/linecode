@@ -20,9 +20,9 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show($id)
+    public function show($slug)
     {
-      $post = Post::find($id);
+      $post = Post::where('slug', $slug)->first();
       return view('blog.show')->withPost($post);
     }
 }

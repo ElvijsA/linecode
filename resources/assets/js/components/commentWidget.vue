@@ -4,12 +4,12 @@
         <label for="name" class="label">Comment</label>
        <p class="control">
           <div class="boxsizingBorder">
-            <textarea  class="input" v-model="commentBody"></textarea>
+            <textarea  class="input" v-model="commentBody" @keyup.enter="commentPost"></textarea>
           </div>
        </p>
      </div>
      <div class="flex right">
-        <input class="button" @click="commentPost()" value="Add Comment">
+        <input class="button" @click="commentPost" value="Add Comment">
      </div>
    </div>
 </template>
@@ -41,7 +41,22 @@
                   app.errors.push(e)
             })
       }
+      this.commentBody = '';
       }
       }
    }
 </script>
+<!--
+@if (Auth::check())
+      <script>
+         var app = new Vue({
+            el: '.add-comment-box',
+            data: {
+               api_token: '{{Auth::user()->api_token}}',
+               user_id: '{{Auth::user()->id}}',
+               post_id: '{{$post->id}}'
+            }
+         });
+      </script>
+@endif
+-->
