@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->integer('category_id')->nullable()->unsigned();
             $table->string('post_image');
             $table->mediumText('body');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

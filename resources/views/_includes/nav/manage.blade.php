@@ -33,9 +33,9 @@
             <li><a href="{{route('tags.index')}}">Tags</a></li>
           </ul>
       </li>
-      <li><a href="">Comments</a></li>
+      <li><a href="{{route('comments.index')}}">Comments</a></li>
     </ul>
 
-   
+
   </aside>
 </div>

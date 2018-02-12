@@ -33,6 +33,7 @@ Route::prefix('manage')->middleware('role:superadministrator|administrator|edito
   Route::resource('/posts', 'PostController');
   Route::resource('/categories', 'CategoryController');
   Route::resource('/tags', 'TagController');
+  Route::resource('/comments', 'CommentController');
   Route::get('/images', 'ImagesController@index')->name('images.index');
 });
 

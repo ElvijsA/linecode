@@ -84,7 +84,8 @@ class PostController extends Controller
          $post->title = $request->input('title');
          $post->slug = $request->input('slug');
          $post->category_id = $request->input('category_id');
-         $post->body = Purifier::clean($request->body, 'youtube');
+         //$post->body = Purifier::clean($request->body, 'youtube');
+         $post->body = $request->input('body');
          $post->user_id = auth()->user()->id;
          $post->post_image = $fileNameToStore;
          $post->save();
@@ -172,7 +173,8 @@ class PostController extends Controller
       //Update Post Setting Variables
         $post->title = $request->input('title');
         $post->category_id = $request->input('category_id');
-        $post->body = Purifier::clean($request->body, 'youtube');
+        //$post->body = Purifier::clean($request->body, 'youtube');
+        $post->body = $request->input('body');
 
         $post->save();
         $post->tags()->sync($request->tags,true);

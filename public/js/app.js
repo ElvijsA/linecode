@@ -1465,8 +1465,6 @@ Vue.component('comment-composer', __webpack_require__(62));
 
 __webpack_require__(67);
 
-$("iframe").parent().addClass("video-responsive");
-
 $(document).ready(function () {
     $('button.dropdown').hover(function (e) {
         $(this).toggleClass('is-open');
@@ -41809,7 +41807,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.message {\r\n   padding: 0.5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -41942,7 +41940,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.empty{\r\n   font-size: 0.8rem;\r\n   color: #999;\r\n   text-align: center;\r\n   padding: 1rem;\n}\r\n", ""]);
+exports.push([module.i, "\n.empty{\r\n   font-size: 0.8rem;\r\n   color: #ccc;\r\n   text-align: center;\r\n   padding: 1rem;\n}\r\n", ""]);
 
 // exports
 

@@ -18,7 +18,7 @@ Vue.component('comment-composer', require('./components/comment-system/commentCo
 
 require('./manage');
 
-$("iframe").parent().addClass("video-responsive")
+
 
 $(document).ready(function(){
     $('button.dropdown').hover(function(e) {

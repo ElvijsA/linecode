@@ -12,4 +12,7 @@ export default {
 </script>
 
 <style lang="css">
+.message {
+   padding: 0.5rem;
+}
 </style>

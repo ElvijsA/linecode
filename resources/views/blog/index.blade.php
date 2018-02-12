@@ -26,7 +26,7 @@
               @endforeach
           </div>
 
-          <a href="{{route('blog.show', $post->id)}}" class="button">Read More</a>
+          <a href="{{route('blog.show', $post->slug)}}" class="button">Read More</a>
           </div>
         </div>
         </div>

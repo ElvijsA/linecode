@@ -14,7 +14,7 @@ export default {
 <style lang="css">
 .empty{
    font-size: 0.8rem;
-   color: #999;
+   color: #ccc;
    text-align: center;
    padding: 1rem;
 }
