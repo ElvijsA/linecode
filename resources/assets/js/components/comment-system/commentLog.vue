@@ -1,6 +1,6 @@
 <template lang="html">
    <div class="chat-log">
-      <comment-message v-for="comment in comments" :comment="comment"></comment-message>
+      <comment-message v-for="comment in comments" :comment="comment" v-bind:key="comment.text"></comment-message>
       <div class="empty" v-show="comments.length === 0">No Comments Added Yet</div>
    </div>
 </template>
